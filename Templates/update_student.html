@@ -1,0 +1,11 @@
+﻿{% extends "base.html" %}
+{% block title %}メンバー編集画面{{ block.super }}{% endblock %}
+{% block content %}
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %} 
+      {{ update_form.as_p }}
+      <input type="submit" value="更新" />
+      <p><img src={{ students.picture.url }}></img></p>
+    </form>
+    <p><a href="{% url "student_app:delete_student" id=students.id%}">削除する</a></p>
+{% endblock%}

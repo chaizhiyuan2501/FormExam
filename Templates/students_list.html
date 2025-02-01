@@ -1,0 +1,18 @@
+﻿{% extends "base.html" %}
+{% block title %}メンバー一覧画面{{ block.super }}{% endblock %}
+{% block content %}
+    <table>
+    <tr>
+        <th>名前</th>
+        <th>年齢</th>
+        <th>学年</th>
+    </tr>
+    {% for students in students%}
+    <tr>
+    <td><a href="{% url 'student_app:update_student' id=students.id %}">{{ students.name }}</a></td>
+    <td>{{ students.age }}</td>
+    <td>{{ students.grade }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+{% endblock%}
